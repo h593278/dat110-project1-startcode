@@ -11,7 +11,7 @@ public class DisplayImpl extends RPCRemoteImpl {
 		super(rpcid,rpcserver);
 	}
 	public void write(String message) {
-		System.out.println("DISPLAY:" + message);
+		System.out.println("DISPLAY:" + message);	
 	}
 	
 	public byte[] invoke(byte[] params) {
@@ -21,10 +21,12 @@ public class DisplayImpl extends RPCRemoteImpl {
 		// TODO - START: 
 		// implement unmarshalling, call, and marshall for write RPC method
 		// look at how this is done in the SensorImpl class for the read method
+		String verdi = RPCUtils.unmarshallString(params); 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		write(verdi);
 		
+		reply = RPCUtils.marshallVoid(); 
+
 		// TODO - END
 		
 		return reply;

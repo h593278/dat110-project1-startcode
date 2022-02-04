@@ -16,9 +16,9 @@ public class DisplayStub extends RPCLocalStub {
 		// TODO - START
 		
 		// implement marshalling, call and unmarshalling for write RPC method
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		byte[] request = RPCUtils.marshallString(message);
+		byte[] response = rpcclient.call(RPCIDDISPLAY, request);
+		RPCUtils.unmarshallString(response);
 		
 		// TODO - END
 		

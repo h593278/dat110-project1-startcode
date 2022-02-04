@@ -3,6 +3,7 @@ package no.hvl.dat110.messaging;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 import no.hvl.dat110.TODO;
 
@@ -27,15 +28,16 @@ public class MessagingServer {
 	public Connection accept() {
 
 		Connection connection = null;
-
-		// TODO - START
+		
 		// accept TCP connection on welcome socket and create connection
+		try {
+			Socket socket = welcomeSocket.accept();
+			connection = new Connection(socket);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
-		
+
 		return connection;
 
 	}
